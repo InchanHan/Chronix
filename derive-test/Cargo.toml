@@ -1,0 +1,13 @@
+[package]
+name = "derive-test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chronix-derive = { path = "../chronix-derive" }
+chronix = { path = "../chronix" }
+
+[features]
+default = []
+rdtscp = ["chronix/rdtscp", "chronix-derive/rdtscp"]
+affinity = ["chronix/affinity", "chronix-derive/affinity"]

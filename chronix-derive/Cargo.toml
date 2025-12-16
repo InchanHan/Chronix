@@ -1,0 +1,17 @@
+[package]
+name = "chronix-derive"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+syn = {version = "1.0", features = ["full"] }
+quote = "1.0"
+chronix = { path = "../chronix" }
+
+[features]
+default = []
+rdtscp = ["chronix/rdtscp"]
+affinity = ["chronix/affinity"]
+
+[lib]
+proc-macro = true

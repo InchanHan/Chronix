@@ -1,0 +1,3 @@
+[workspace]
+members = ["chronix", "chronix-derive", "derive-test"]
+resolver = "2"

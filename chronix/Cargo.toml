@@ -1,0 +1,12 @@
+[package]
+name = "chronix"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+rdtscp = []
+affinity = []
+
+[dependencies]
+libc = "0.2.177"
