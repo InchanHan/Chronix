@@ -16,7 +16,7 @@ pub fn chronixer(attr: TokenStream, item: TokenStream) -> TokenStream {
     let mut reps: u32 = 10;
     let mut aggregation: String = String::from("min");
     let mut pin_core0: bool = false;
-    let mut accesses: u32 = 0;
+    let mut accesses: u32 = 1;
     let mut cpu_ghz: f64 = 0.0;
     for arg in &args {
         if let NestedMeta::Meta(Meta::NameValue(m)) = arg {
@@ -87,7 +87,7 @@ pub fn chronixer(attr: TokenStream, item: TokenStream) -> TokenStream {
 
             let cfg = chronix::runner::BenchConfig::new(#warmup, #reps, agg, #pin_core0);
             let mut run = chronix::runner::Runner::new(timer, cfg.clone());
-            let (stat, result) = run.measure(|| {#fn_block}, 10);
+            let (stat, result) = run.measure(|| {#fn_block}, #accesses);
             let stdout_struct = chronix::output::Stdout;
             chronix::output::Sink::report(&stdout_struct, stringify!(#fn_name), &stat, &cfg);
             result
