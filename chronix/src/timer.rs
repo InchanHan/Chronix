@@ -14,8 +14,17 @@ impl Duration {
             unit,
         }
     }
+
+    pub fn time(&self) -> f64 {
+        self.value
+    }
+
+    pub fn unit(&self) -> TimeUnit {
+        self.unit.clone()
+    }
 }
 
+#[derive(Clone)]
 pub enum TimeUnit {
     Ns,
     Us,
